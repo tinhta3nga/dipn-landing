@@ -7,11 +7,12 @@ import { sectionVariant, gridVariant } from "./motion";
 export function AgencyIPSection() {
   return (
     <motion.section
+      id="services"
       variants={sectionVariant}
       initial="hidden"
       whileInView="show"
       viewport={{ once: true, margin: "-100px" }}
-      className="py-24 px-6 md:px-12 lg:px-20"
+      className="py-24 px-6 md:px-12 lg:px-20 scroll-mt-[140px]"
     >
       <div className="container mx-auto">
         {/* HEADER */}

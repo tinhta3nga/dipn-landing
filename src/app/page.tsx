@@ -1,16 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import {
-  Shield,
-  CheckCircle,
-  FileText,
-  Users,
-  DollarSign,
-  TrendingUp,
-  ChevronLeft,
-  ChevronRight,
-} from "lucide-react";
+import { Shield } from "lucide-react";
 import Image from "next/image";
 import {
   NetflixSvg,
@@ -26,6 +17,10 @@ import {
   SpotifySvg,
 } from "@/components/partner-logos";
 import { AgencyIPSection } from "@/components/sections/agency-ip/AgencyIPSection";
+import { IPPlatformSection } from "@/components/sections/agency-ip/IPPlatformSection/IPPlatformSection";
+import BenefitMarqueeSection from "@/components/sections/agency-ip/BenefitMarqueeSection";
+import CTASection from "@/components/sections/agency-ip/CTASection";
+import HeroSection from "@/components/hero/HeroSection";
 
 export default function DipNetLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -37,21 +32,6 @@ export default function DipNetLanding() {
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
-
-  const testimonials = [
-    {
-      title: "Ask anything",
-      desc: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    },
-    {
-      title: "Ask anything",
-      desc: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    },
-    {
-      title: "Ask anything",
-      desc: "Lets users quickly find answers to their questions without having to search through multiple sources.",
-    },
-  ];
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#000D33] via-[#001A4D] to-[#000D33] text-white overflow-x-hidden">
@@ -78,33 +58,36 @@ export default function DipNetLanding() {
 
           {/* Desktop Navigation */}
           <div className="hidden lg:flex items-center gap-[32px] flex-1">
-            <a href="#" className="text-cyan-400 transition whitespace-nowrap">
+            <a
+              href="#home"
+              className="text-cyan-400 transition whitespace-nowrap"
+            >
               Trang chủ
             </a>
 
             <a
-              href="#"
+              href="#services"
               className="text-white transition whitespace-nowrap hover:text-cyan-400"
             >
               Dịch vụ
             </a>
 
             <a
-              href="#"
+              href="#about"
               className="text-white transition whitespace-nowrap hover:text-cyan-400"
             >
               Về chúng tôi
             </a>
 
             <a
-              href="#"
+              href="#testimonials"
               className="text-white transition whitespace-nowrap hover:text-cyan-400"
             >
               Tin tức
             </a>
 
             <a
-              href="#"
+              href="#contact"
               className="text-white transition whitespace-nowrap hover:text-cyan-400"
             >
               Liên hệ
@@ -194,105 +177,70 @@ export default function DipNetLanding() {
       </header>
 
       {/* Hero Section */}
-      <section className="relative pt-36 pb-32 overflow-hidden">
-        <div className="container mx-auto px-6 lg:px-20">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            {/* LEFT */}
-            <div className="space-y-8 max-w-[720px]">
-              <p className="text-[16px] font-semibold leading-[24px] uppercase text-[#0D52FF]">
-                CHÀO MỪNG ĐẾN VỚI DIPNET
-              </p>
-
-              <h1 className="font-extrabold leading-[1.2] text-[56px] lg:text-[72px]">
-                <span className="bg-gradient-to-r from-[#0D52FF] to-[#00F3F1] bg-clip-text text-transparent">
-                  DipNET
-                </span>{" "}
-                <span className="text-white">
-                  – Vững tấm khiên
-                  <br />
-                  bản quyền trong
-                  <br />
-                </span>
-                <span className="bg-gradient-to-r from-[#0D52FF] to-[#00F3F1] bg-clip-text text-transparent">
-                  kỷ nguyên số
-                </span>
-              </h1>
-
-              <p className="text-[#768F72] text-[16px] leading-[24px] max-w-[426px]">
-                Chúng tôi cung cấp dịch vụ uỷ quyền từ Cục Sở Hữu Trí Tuệ và Bộ
-                Công An, kết hợp nền tảng giao dịch IP mã hoá bằng blockchain.
-                Biến ý tưởng của bạn thành tài sản an toàn và dễ giao dịch.
-              </p>
-            </div>
-
-            {/* RIGHT */}
-            <div className="flex justify-center">
-              <img src="/images/shield.png" className="w-[486px]" />
-            </div>
-          </div>
-        </div>
-      </section>
+      <HeroSection />
 
       {/* Partners Section */}
-      <section className="py-20 px-6 md:px-12 lg:px-20">
+      <section className="relative pt-32 pb-32 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-[#020B2A] via-[#020B2A] to-black">
         <div className="container mx-auto text-center">
           <h2 className="text-white text-3xl font-bold mb-16">
             Đơn vị hợp tác
           </h2>
 
-          <div className="flex flex-col gap-[52px]">
-            {/* ROW 1 */}
-            <div className="flex justify-center items-center gap-[52px] h-[92px]">
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                {/* Netflix SVG */}
-                <NetflixSvg />
+          <div className="relative mx-auto max-w-[1100px] rounded-3xl bg-white/5 backdrop-blur border border-white/10 py-16">
+            <div className="flex flex-col gap-[52px]">
+              {/* ROW 1 */}
+              <div className="flex justify-center items-center gap-[52px] h-[92px]">
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  {/* Netflix SVG */}
+                  <NetflixSvg />
+                </div>
+
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <YoutubeSvg />
+                </div>
+
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <NikeSvg />
+                </div>
+
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <NokiaSvg />
+                </div>
+
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <PaypalSvg />
+                </div>
+
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <StarWarsSvg />
+                </div>
               </div>
 
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <YoutubeSvg />
-              </div>
+              {/* ROW 2 */}
+              <div className="flex justify-center items-center gap-[52px] h-[92px]">
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <RedBullSvg />
+                </div>
 
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <NikeSvg />
-              </div>
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <SamsungSvg />
+                </div>
 
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <NokiaSvg />
-              </div>
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <SlackSvg />
+                </div>
 
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <PaypalSvg />
-              </div>
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <SonySvg />
+                </div>
 
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <StarWarsSvg />
-              </div>
-            </div>
+                <div className="w-[92px] h-[92px] flex items-center justify-center text-white font-bold opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  SPACEX
+                </div>
 
-            {/* ROW 2 */}
-            <div className="flex justify-center items-center gap-[52px] h-[92px]">
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <RedBullSvg />
-              </div>
-
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <SamsungSvg />
-              </div>
-
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <SlackSvg />
-              </div>
-
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <SonySvg />
-              </div>
-
-              <div className="w-[92px] h-[92px] flex items-center justify-center text-white font-bold opacity-70 hover:opacity-100 transition">
-                SPACEX
-              </div>
-
-              <div className="w-[92px] h-[92px] opacity-70 hover:opacity-100 transition">
-                <SpotifySvg />
+                <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
+                  <SpotifySvg />
+                </div>
               </div>
             </div>
           </div>
@@ -303,7 +251,10 @@ export default function DipNetLanding() {
       <AgencyIPSection />
 
       {/* AI Section */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-blue-600 to-blue-700">
+      <section
+        id="about"
+        className="py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-blue-600 to-blue-700 scroll-mt-[140px]"
+      >
         <div className="container mx-auto">
           <div className="grid lg:grid-cols-2 gap-16 items-center">
             <div className="relative flex justify-center">
@@ -351,138 +302,15 @@ export default function DipNetLanding() {
       </section>
 
       {/* Platform Section */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-black">
-        <div className="container mx-auto">
-          <div className="max-w-3xl mx-auto mb-16">
-            <h2 className="text-3xl font-bold mb-6">
-              Nền Tảng Giao Dịch IP
-              <br />
-              <span className="text-cyan-400">Mã Hóa Của DipNET</span>
-            </h2>
-            <p className="text-gray-400">
-              Sử dụng blockchain để mã hóa và giao dịch IP an toàn.
-            </p>
-            <ul className="mt-8 space-y-3">
-              <li className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Giao Dịch IP (IP Trading)</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Mã Hóa Sản Phẩm (Product Tokenization)</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Hướng Dẫn Sử Dụng (User Guide)</span>
-              </li>
-              <li className="flex items-center gap-3 text-gray-300">
-                <CheckCircle className="w-5 h-5 text-green-400" />
-                <span>Tích Hợp Blockchain (Blockchain Integration)</span>
-              </li>
-            </ul>
-          </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-8 max-w-2xl mx-auto">
-            {[1, 2, 3, 4, 5, 6].map((i) => (
-              <div
-                key={i}
-                className="bg-gradient-to-br from-gray-800 to-gray-900 rounded-2xl p-8 flex items-center justify-center hover:scale-105 transition"
-              >
-                <div className="w-12 h-12 bg-blue-500/20 rounded-xl"></div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* Statistics Section */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-black to-[#000D33]">
-        <div className="container mx-auto">
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-12 text-center">
-            <StatCard
-              icon={<Users className="w-12 h-12 text-blue-400 mx-auto" />}
-              value="330+"
-              label="Người Dùng & Đối Tác Hoạt Động"
-            />
-            <StatCard
-              icon={
-                <DollarSign className="w-12 h-12 text-purple-400 mx-auto" />
-              }
-              value="10000+"
-              label="Tài Sản Trí Tuệ Được Nộp Nếu"
-            />
-            <StatCard
-              icon={<Users className="w-12 h-12 text-blue-400 mx-auto" />}
-              value="25+"
-              label="Chuyên Gia & Cố Vấn Đồng Hành"
-            />
-            <StatCard
-              icon={<TrendingUp className="w-12 h-12 text-green-400 mx-auto" />}
-              value="4+"
-              label="Năm Hoạt Động & Phát Triển"
-            />
-          </div>
-        </div>
-      </section>
+      <IPPlatformSection />
 
       {/* Testimonials Section */}
-      <section className="py-24 px-6 md:px-12 lg:px-20">
-        <div className="container mx-auto">
-          <h2 className="text-4xl font-bold text-center mb-4">
-            Chúng Tôi Mang Đến
-            <br />
-            <span className="text-cyan-400">Cho Bạn</span>
-          </h2>
-
-          <div className="relative mt-16 max-w-5xl mx-auto">
-            <div className="flex gap-6 overflow-hidden">
-              {testimonials.map((item, i) => (
-                <div
-                  key={i}
-                  className={`flex-shrink-0 w-full md:w-80 bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-2xl p-8 transition-all ${
-                    i === activeSlide
-                      ? "scale-100 opacity-100"
-                      : "scale-95 opacity-50"
-                  }`}
-                >
-                  <h3 className="text-xl font-bold mb-4">{item.title}</h3>
-                  <p className="text-gray-400 text-sm">{item.desc}</p>
-                </div>
-              ))}
-            </div>
-
-            <div className="flex justify-center gap-2 mt-8">
-              {testimonials.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveSlide(i)}
-                  className={`w-2 h-2 rounded-full transition ${
-                    i === activeSlide ? "bg-blue-400 w-8" : "bg-gray-600"
-                  }`}
-                ></button>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
+      <BenefitMarqueeSection />
+      <div className="h-40 md:h-48 lg:h-56 bg-black" />
 
       {/* CTA Section */}
-      <section className="py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-t from-blue-600/20 to-transparent">
-        <div className="container mx-auto text-center">
-          <h2 className="text-4xl font-bold mb-4">
-            Từ ý tưởng đến tài sản số.
-            <br />
-            <span className="text-cyan-400">An toàn, minh bạch!</span>
-          </h2>
-          <p className="text-gray-400 mb-8 max-w-2xl mx-auto">
-            Hãy liên hệ với chúng tôi! Chúng tôi luôn sẵn sàng giải đáp thắc mắc
-            của bạn 24/7
-          </p>
-          <button className="bg-blue-500 hover:bg-blue-600 px-10 py-4 rounded-full font-medium transition">
-            Liên hệ ngay
-          </button>
-        </div>
-      </section>
+      <CTASection />
 
       {/* Footer */}
       <footer className="py-16 px-6 md:px-12 lg:px-20 bg-black border-t border-gray-800">
@@ -594,45 +422,6 @@ export default function DipNetLanding() {
           }
         }
       `}</style>
-    </div>
-  );
-}
-
-function ServiceCard({
-  icon,
-  title,
-  desc,
-}: {
-  icon: React.ReactNode;
-  title: string;
-  desc: string;
-}) {
-  return (
-    <div className="bg-gradient-to-br from-gray-800/50 to-gray-900/50 border border-gray-700 rounded-3xl p-8 hover:scale-105 transition">
-      <div className="mb-6">{icon}</div>
-      <h3 className="text-xl font-bold mb-4">{title}</h3>
-      <p className="text-gray-400 text-sm leading-relaxed">{desc}</p>
-      <button className="mt-6 bg-blue-500 hover:bg-blue-600 px-6 py-2 rounded-full text-sm transition">
-        Xem thêm
-      </button>
-    </div>
-  );
-}
-
-function StatCard({
-  icon,
-  value,
-  label,
-}: {
-  icon: React.ReactNode;
-  value: string;
-  label: string;
-}) {
-  return (
-    <div>
-      <div className="mb-4">{icon}</div>
-      <div className="text-4xl font-bold mb-2">{value}</div>
-      <p className="text-gray-400 text-sm">{label}</p>
     </div>
   );
 }
