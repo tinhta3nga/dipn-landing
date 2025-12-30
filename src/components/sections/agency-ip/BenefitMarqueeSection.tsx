@@ -34,11 +34,7 @@ export default function BenefitMarqueeSection() {
           <span className="text-cyan-400">Cho Bạn</span>
         </h2>
 
-        {/* ===== MARQUEE ===== */}
         <div className="relative">
-          <div className="pointer-events-none absolute left-0 top-0 h-full w-64 bg-gradient-to-r from-black to-transparent z-10" />
-          <div className="pointer-events-none absolute right-0 top-0 h-full w-64 bg-gradient-to-l from-black to-transparent z-10" />
-
           <motion.div
             className="flex gap-20"
             animate={{ x: ["0%", "-50%"] }}
@@ -54,7 +50,7 @@ export default function BenefitMarqueeSection() {
                 className="
                   relative
                   flex-shrink-0
-                  w-[420px] md:w-[480px] lg:w-[520px]
+                  w-[85vw] sm:w-[420px] md:w-[480px] lg:w-[520px]
                   rounded-3xl
                   p-10
                   bg-gradient-to-b from-[#0B1220] to-black

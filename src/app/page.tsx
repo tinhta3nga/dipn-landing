@@ -25,13 +25,18 @@ import HeroSection from "@/components/hero/HeroSection";
 export default function DipNetLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [active, setActive] = useState("home");
 
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 20);
     window.addEventListener("scroll", handleScroll);
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
+
+  const navClass = (key: string) =>
+    active === key
+      ? "text-cyan-400 transition whitespace-nowrap"
+      : "text-white transition whitespace-nowrap hover:text-cyan-400";
 
   return (
     <div className="min-h-screen bg-gradient-to-b from-[#000D33] via-[#001A4D] to-[#000D33] text-white overflow-x-hidden">
@@ -42,7 +47,7 @@ export default function DipNetLanding() {
         }`}
       >
         <nav
-          className="flex flex-row items-center px-8 py-8 gap-44 h-[116px] max-w-[1440px] mx-auto"
+          className="flex flex-row items-center px-8 py-8 gap-4 lg:gap-44 h-[116px] max-w-[1440px] mx-auto"
           style={{ paddingLeft: "112px", paddingRight: "112px" }}
         >
           {/* Logo */}
@@ -60,35 +65,40 @@ export default function DipNetLanding() {
           <div className="hidden lg:flex items-center gap-[32px] flex-1">
             <a
               href="#home"
-              className="text-cyan-400 transition whitespace-nowrap"
+              onClick={() => setActive("home")}
+              className={navClass("home")}
             >
               Trang chủ
             </a>
 
             <a
               href="#services"
-              className="text-white transition whitespace-nowrap hover:text-cyan-400"
+              onClick={() => setActive("services")}
+              className={navClass("services")}
             >
               Dịch vụ
             </a>
 
             <a
               href="#about"
-              className="text-white transition whitespace-nowrap hover:text-cyan-400"
+              onClick={() => setActive("about")}
+              className={navClass("about")}
             >
               Về chúng tôi
             </a>
 
             <a
               href="#testimonials"
-              className="text-white transition whitespace-nowrap hover:text-cyan-400"
+              onClick={() => setActive("testimonials")}
+              className={navClass("testimonials")}
             >
               Tin tức
             </a>
 
             <a
               href="#contact"
-              className="text-white transition whitespace-nowrap hover:text-cyan-400"
+              onClick={() => setActive("contact")}
+              className={navClass("contact")}
             >
               Liên hệ
             </a>
@@ -189,7 +199,7 @@ export default function DipNetLanding() {
           <div className="relative mx-auto max-w-[1100px] rounded-3xl bg-white/5 backdrop-blur border border-white/10 py-16">
             <div className="flex flex-col gap-[52px]">
               {/* ROW 1 */}
-              <div className="flex justify-center items-center gap-[52px] h-[92px]">
+              <div className="flex flex-wrap justify-center items-center gap-[52px] h-auto">
                 <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
                   {/* Netflix SVG */}
                   <NetflixSvg />
@@ -217,7 +227,7 @@ export default function DipNetLanding() {
               </div>
 
               {/* ROW 2 */}
-              <div className="flex justify-center items-center gap-[52px] h-[92px]">
+              <div className="flex flex-wrap justify-center items-center gap-[52px] h-auto">
                 <div className="w-[92px] h-[92px] opacity-80 hover:opacity-100 hover:scale-105 transition">
                   <RedBullSvg />
                 </div>
@@ -313,14 +323,17 @@ export default function DipNetLanding() {
       <CTASection />
 
       {/* Footer */}
-      <footer className="py-16 px-6 md:px-12 lg:px-20 bg-black border-t border-gray-800">
+      <footer className="py-16 px-6 md:px-12 lg:px-20 bg-black border-t border-gray-800 text-sm md:text-base">
         <div className="container mx-auto">
-          <div className="grid md:grid-cols-4 gap-12">
-            <div>
-              <div className="flex items-center gap-3 mb-6">
+          {/* MAIN GRID */}
+          <div className="grid grid-cols-1 md:grid-cols-4 gap-10 md:gap-12">
+            {/* BRAND */}
+            <div className="space-y-6">
+              <div className="flex items-center gap-3">
                 <Shield className="w-8 h-8 text-blue-400" />
-                <span className="text-2xl font-bold">DipNET</span>
+                <span className="text-2xl font-bold text-white">DipNET</span>
               </div>
+
               <div className="flex gap-4">
                 <a
                   href="#"
@@ -343,8 +356,9 @@ export default function DipNetLanding() {
               </div>
             </div>
 
+            {/* NAV */}
             <div>
-              <h3 className="font-bold mb-4">Trang chủ</h3>
+              <h3 className="font-bold mb-4 text-white">Điều hướng</h3>
               <ul className="space-y-2 text-gray-400">
                 <li>
                   <a href="#" className="hover:text-white transition">
@@ -374,24 +388,30 @@ export default function DipNetLanding() {
               </ul>
             </div>
 
+            {/* CONTACT */}
             <div className="md:col-span-2">
-              <h3 className="font-bold mb-4">Liên hệ</h3>
+              <h3 className="font-bold mb-4 text-white">Liên hệ</h3>
               <ul className="space-y-3 text-gray-400">
-                <li className="flex items-center gap-2">
-                  <span>📧</span> info@dipnet.vn
+                <li className="flex items-start gap-2">
+                  <span>📧</span>
+                  <span>info@dipnet.vn</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span>📞</span> 19002288
+                <li className="flex items-start gap-2">
+                  <span>📞</span>
+                  <span>19002288</span>
                 </li>
-                <li className="flex items-center gap-2">
-                  <span>📍</span> Số 37, Ngõ 45 Trần Thái Tông, phường Cầu Giấy,
-                  Hà Nội
+                <li className="flex items-start gap-2">
+                  <span>📍</span>
+                  <span>
+                    Số 37, Ngõ 45 Trần Thái Tông, phường Cầu Giấy, Hà Nội
+                  </span>
                 </li>
               </ul>
             </div>
           </div>
 
-          <div className="mt-12 pt-8 border-t border-gray-800 text-center text-gray-500 text-sm">
+          {/* COPYRIGHT */}
+          <div className="mt-10 pt-6 border-t border-gray-800 text-center text-gray-500 text-sm">
             Copyright © 2025 by DipNET. All Rights Reserved.
           </div>
         </div>
