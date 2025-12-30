@@ -1,3 +1,8 @@
+"use client";
+
+import { motion } from "framer-motion";
+import { cardVariant } from "./motion";
+
 type ServiceCardProps = {
   image: string;
   bgSize: string;
@@ -14,7 +19,18 @@ export function ServiceCard({
   desc,
 }: ServiceCardProps) {
   return (
-    <div className="flex flex-col items-center text-center h-[500px] p-6 gap-8">
+    <motion.div
+      variants={cardVariant}
+      whileHover={{ y: -6 }}
+      transition={{ type: "spring", stiffness: 260 }}
+      className="
+        flex flex-col items-center text-center
+        h-[500px] p-6 gap-8
+        rounded-xl
+        bg-white/5 hover:bg-white/10
+        transition-colors
+      "
+    >
       {/* IMAGE */}
       <div
         className="w-[224px] h-[224px] shrink-0"
@@ -26,20 +42,18 @@ export function ServiceCard({
         }}
       />
 
-      {/* TITLE – FIX HEIGHT */}
+      {/* TITLE */}
       <h3 className="text-white text-lg font-semibold h-[56px] flex items-center justify-center">
         {title}
       </h3>
 
-      {/* DESC – FIX HEIGHT */}
-      <p className="text-gray-400 text-sm leading-relaxed h-[72px]">
-        {desc}
-      </p>
+      {/* DESC */}
+      <p className="text-gray-400 text-sm leading-relaxed h-[72px]">{desc}</p>
 
-      {/* BUTTON – ALWAYS SAME LINE */}
+      {/* CTA */}
       <button className="mt-auto px-6 py-2 rounded-full bg-blue-600 text-white text-sm">
         Xem thêm
       </button>
-    </div>
+    </motion.div>
   );
 }

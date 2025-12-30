@@ -1,22 +1,38 @@
+"use client";
+
+import { motion } from "framer-motion";
 import { ServiceCard } from "./ServiceCard";
+import { sectionVariant, gridVariant } from "./motion";
 
 export function AgencyIPSection() {
   return (
-    <section className="py-24 px-6 md:px-12 lg:px-20">
+    <motion.section
+      variants={sectionVariant}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true, margin: "-100px" }}
+      className="py-24 px-6 md:px-12 lg:px-20"
+    >
       <div className="container mx-auto">
+        {/* HEADER */}
         <div className="text-center mb-20">
           <h2 className="text-4xl font-bold mb-4 text-white">
             Dịch vụ <span className="text-cyan-400">Agency IP</span>
             <br />
             Toàn diện của Dipnet
           </h2>
+
           <p className="text-gray-400 max-w-2xl mx-auto">
             Chúng tôi đại diện ủy quyền từ Cục SHTT và Bộ Công An, hỗ trợ đăng
             ký, bảo vệ IP theo luật 2025.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-12">
+        {/* SERVICES */}
+        <motion.div
+          variants={gridVariant}
+          className="grid md:grid-cols-3 gap-12"
+        >
           <ServiceCard
             image="/images/3.png"
             bgSize="cover"
@@ -40,8 +56,8 @@ export function AgencyIPSection() {
             title="Bảo vệ quyền sở hữu trí tuệ"
             desc="Giám sát và chống xâm phạm bằng công cụ blockchain."
           />
-        </div>
+        </motion.div>
       </div>
-    </section>
+    </motion.section>
   );
 }
