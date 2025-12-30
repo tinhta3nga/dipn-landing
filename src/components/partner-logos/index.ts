@@ -1,0 +1,11 @@
+export { NetflixSvg } from "./NetflixSvg";
+export { YoutubeSvg } from "./YoutubeSvg";
+export { NikeSvg } from "./NikeSvg";
+export { NokiaSvg } from "./NokiaSvg";
+export { PaypalSvg } from "./PaypalSvg";
+export { StarWarsSvg } from "./StarWarsSvg";
+export { RedBullSvg } from "./RedBullSvg";
+export { SamsungSvg } from "./SamsungSvg";
+export { SlackSvg } from "./SlackSvg";
+export { SonySvg } from "./SonySvg";
+export { SpotifySvg } from "./SpotifySvg";
