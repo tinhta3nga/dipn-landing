@@ -9,7 +9,10 @@ export default function HeroSection() {
   const yParallax = useTransform(scrollY, [0, 500], [0, -80]);
 
   return (
-    <section id="home" className="relative pt-44 pb-40 overflow-hidden scroll-mt-[140px]">
+    <section
+      id="home"
+      className="relative pt-44 pb-40 overflow-hidden scroll-mt-[140px]"
+    >
       <div className="container mx-auto px-6 lg:px-20 relative">
         <div className="grid lg:grid-cols-2 gap-24 items-center">
           {/* LEFT */}
@@ -69,15 +72,18 @@ export default function HeroSection() {
               <div className="absolute inset-0 bg-cyan-400/30 blur-[120px] rounded-full" />
 
               {/* Light sweep */}
+              {/* Ambient glow */}
               <motion.div
-                className="absolute inset-0 bg-gradient-to-r from-transparent via-white/40 to-transparent"
-                animate={{ x: ["-120%", "120%"] }}
+                className="absolute inset-0 flex items-center justify-center"
+                animate={{ scale: [1, 1.06, 1], opacity: [0.25, 0.4, 0.25] }}
                 transition={{
                   duration: 6,
                   repeat: Infinity,
                   ease: "easeInOut",
                 }}
-              />
+              >
+                <div className="w-[520px] h-[520px] rounded-full bg-cyan-400 blur-[160px]" />
+              </motion.div>
 
               <motion.img
                 src="/images/shield.png"
