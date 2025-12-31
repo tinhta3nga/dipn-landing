@@ -16,13 +16,11 @@ export function IPPlatformSection() {
       "
     >
       <div className="container mx-auto">
-        {/* ===== BLOCK TRÊN ===== */}
         <div className="grid md:grid-cols-2 gap-16 items-center">
           <IPPlatformContent />
           <IPPlatformOrbit />
         </div>
 
-        {/* ===== TÁCH KHỐI ===== */}
         <div className="relative my-28">
           <div
             className="

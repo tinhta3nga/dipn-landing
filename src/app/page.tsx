@@ -21,6 +21,7 @@ import { IPPlatformSection } from "@/components/sections/agency-ip/IPPlatformSec
 import BenefitMarqueeSection from "@/components/sections/agency-ip/BenefitMarqueeSection";
 import CTASection from "@/components/sections/agency-ip/CTASection";
 import HeroSection from "@/components/hero/HeroSection";
+import { AboutSection } from "@/components/sections/AboutSection/AboutSection";
 
 export default function DipNetLanding() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -260,58 +261,7 @@ export default function DipNetLanding() {
       {/* Agency IP Section */}
       <AgencyIPSection />
 
-      {/* AI Section */}
-      <section
-        id="about"
-        className="py-24 px-6 md:px-12 lg:px-20 bg-gradient-to-b from-blue-600 to-blue-700 scroll-mt-[140px]"
-      >
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-16 items-center">
-            <div className="relative flex justify-center">
-              <div className="w-80 h-80 relative">
-                <div className="absolute inset-0 bg-blue-400/20 rounded-3xl blur-3xl"></div>
-                <div className="relative bg-gradient-to-br from-blue-300 to-blue-500 rounded-3xl p-12 flex items-center justify-center">
-                  <Image
-                    src="/images/ai-logo.png"
-                    alt="AI"
-                    width={642}
-                    height={584}
-                    className="shrink-0 aspect-[321/292] object-contain"
-                  />
-                </div>
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <p className="text-blue-200 text-sm uppercase tracking-wider">
-                VỀ DIPNET
-              </p>
-              <h2 className="text-4xl font-bold leading-tight">
-                Tiên Phong Trong
-                <br />
-                Sở Hữu Trí Tuệ
-                <br />
-                Kỷ Thuật Số
-              </h2>
-              <p className="text-blue-100 leading-relaxed">
-                Dipnet là Công ty Cổ phần Công nghệ Chuyên về dịch vụ Agency IP
-                được ủy quyền từ Cục Sở Hữu Trí Tuệ và Bộ Công An. Chúng tôi xây
-                dựng nên tảng giao dịch IP mã hóa, hỗ trợ đăng ký ngành Việt Nam
-                trong bối cảnh cải cách IP 2025.
-              </p>
-              <p className="text-blue-100 leading-relaxed">
-                Dipnet hợp tác đối tác các chuyên gia và linh vực pháp lý IP,
-                công nghệ blockchain, và phát triển phần mềm.
-              </p>
-              <button className="bg-white text-blue-600 px-8 py-3 rounded-full font-medium hover:bg-blue-50 transition">
-                Tìm hiểu thêm
-              </button>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Platform Section */}
+      <AboutSection />
 
       <IPPlatformSection />
 

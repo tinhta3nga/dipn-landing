@@ -11,9 +11,25 @@ export function AgencyIPSection() {
       variants={sectionVariant}
       initial="hidden"
       whileInView="show"
-      viewport={{ once: true, margin: "-100px" }}
-      className="py-24 px-6 md:px-12 lg:px-20 scroll-mt-[140px]"
+      viewport={{ once: true, margin: "-120px" }}
+      className="
+    relative overflow-hidden
+    py-32 px-6 md:px-12 lg:px-20
+    bg-gradient-to-b
+    from-[#020617]
+    via-[#04142E]
+    to-[#030B1C]
+    scroll-mt-[140px]
+  "
     >
+      <div
+        className="
+      absolute top-[-200px] left-1/2 -translate-x-1/2
+      w-[900px] h-[900px]
+      bg-cyan-500/15
+      rounded-full blur-[160px]
+    "
+      />
       <div className="container mx-auto">
         {/* HEADER */}
         <div className="text-center mb-20">
@@ -36,24 +52,18 @@ export function AgencyIPSection() {
         >
           <ServiceCard
             image="/images/3.png"
-            bgSize="cover"
-            bgPosition="50% 50%"
             title="Dịch vụ đại diện sở hữu trí tuệ"
             desc="Đại diện khách hàng trong quy trình đăng ký IP, bao gồm nhãn hiệu, sáng chế, bản quyền."
           />
 
           <ServiceCard
             image="/images/2.png"
-            bgSize="144.578%"
-            bgPosition="-49.928px -49.928px"
             title="Ủy quyền & Đăng ký IP"
             desc="Ủy quyền trực tiếp qua hệ thống, tuân thủ cải cách 2025."
           />
 
           <ServiceCard
             image="/images/1.png"
-            bgSize="131.868%"
-            bgPosition="-35.692px -35.692px"
             title="Bảo vệ quyền sở hữu trí tuệ"
             desc="Giám sát và chống xâm phạm bằng công cụ blockchain."
           />
